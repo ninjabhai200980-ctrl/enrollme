@@ -18,6 +18,16 @@ npm install
 npm run dev
 ```
 
+#### Authentication
+
+The backend exposes a JWT-based authentication API.
+
+- `POST /auth/login` with JSON body `{ "email": string, "password": string }`.
+- On success, returns `{ "token": "<jwt>" }`.
+- For protected routes, send `Authorization: Bearer <jwt>`.
+- Passwords are hashed using bcrypt before storage.
+- Configure `JWT_SECRET` in the backend environment for production use.
+
 ### Frontend
 
 ```bash

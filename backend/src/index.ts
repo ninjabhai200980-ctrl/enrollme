@@ -1,5 +1,5 @@
 import express from 'express'
-import { authMiddleware } from './modules/auth'
+import { authMiddleware, login } from './modules/auth'
 
 const app = express()
 
@@ -8,6 +8,8 @@ app.use(express.json())
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' })
 })
+
+app.post('/auth/login', login)
 
 app.use(authMiddleware)
 
